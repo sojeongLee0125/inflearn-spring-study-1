@@ -1,6 +1,7 @@
 package spring.springstudy.service;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import spring.springstudy.domain.Member;
 import spring.springstudy.repository.MemoryMemberRepository;
@@ -9,13 +10,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MemberServiceTest {
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
 
-    MemberService memberService = new MemberService();
-    // 테스트 케이스의 memberRepository는 service의 memberRepository와 서로 다른 객체
-    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+    @BeforeEach
+    void beforeEach() {
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
 
     @AfterEach
-    void clearEach(){
+    void clearEach() {
         memberRepository.clearStore();
     }
 
