@@ -22,11 +22,10 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
-    @Commit
     void join() {
         // given
         Member member = new Member();
-        member.setName("test1");
+        member.setName("test2");
 
         // when
         Long id = memberService.join(member);
@@ -40,10 +39,10 @@ class MemberServiceIntegrationTest {
     void 중복회원검사() {
         // given
         Member member = new Member();
-        member.setName("test1");
+        member.setName("test2");
 
         Member member2 = new Member();
-        member2.setName("test1");
+        member2.setName("test2");
 
         // when
         memberService.join(member);
