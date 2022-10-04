@@ -3,6 +3,7 @@ package spring.springstudy.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import spring.springstudy.domain.Member;
 import spring.springstudy.repository.MemberRepository;
@@ -21,6 +22,7 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
+    @Commit
     void join() {
         // given
         Member member = new Member();

@@ -2,12 +2,14 @@ package spring.springstudy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import spring.springstudy.domain.Member;
 import spring.springstudy.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Optional;
-
+@Transactional
+// JPA 를 사용하려면 항상 @Transactional 필요 - 항상 트랜젝션 안에서 실행되어야 함
 public class MemberService {
 
     private final MemberRepository memberRepository;
