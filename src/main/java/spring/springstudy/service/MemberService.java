@@ -9,7 +9,7 @@ import spring.springstudy.repository.MemberRepository;
 import java.util.List;
 import java.util.Optional;
 @Transactional
-// JPA 를 사용하려면 항상 @Transactional 필요 - 항상 트랜젝션 안에서 실행되어야 함
+// JPA 를 사용하려면 항상 @Transactional 필요 - JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.
 public class MemberService {
 
     private final MemberRepository memberRepository;
